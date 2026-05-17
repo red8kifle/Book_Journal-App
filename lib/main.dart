@@ -1,5 +1,6 @@
 
 import 'package:book_journal_app/core/constants/app_colors.dart';
+import 'package:book_journal_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.background,
         ),
-       
+       home: HomeScreen(),
       ),
     );
   }

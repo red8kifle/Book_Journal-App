@@ -4,6 +4,7 @@ class Book {
   final String author;
   final int rating;
   final String status;
+  final String note;
 
   Book({
     this.id,
@@ -11,7 +12,9 @@ class Book {
     required this.author,
     required this.rating,
     required this.status,
+    this.note = '',
   });
+
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
       id: json['id'],
@@ -20,12 +23,23 @@ class Book {
       rating: 4,
       status: 'Reading',
     );
-  }//Converts a raw JSON map (e.g. from an API) into a Book object.
+  }
 
   Map<String, dynamic> toJson() {
     return {
       'title': title,
       'body': author,
-    };//Converts the Book back to a map, for sending to an API.
+    };
+  }
+
+  Book copyWith({String? note}) {
+    return Book(
+      id: id,
+      title: title,
+      author: author,
+      rating: rating,
+      status: status,
+      note: note ?? this.note,
+    );
   }
 }

@@ -7,8 +7,16 @@ import 'status_chip.dart';
 class BookCard extends StatelessWidget {
   final Book book;
   final VoidCallback onTap;
+  final VoidCallback onEdit;
+  final VoidCallback onDelete;
 
-  const BookCard({super.key, required this.book, required this.onTap});
+  const BookCard({
+    super.key,
+    required this.book,
+    required this.onTap,
+    required this.onEdit,
+    required this.onDelete,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +30,9 @@ class BookCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            //Book Cover 
             Container(
               width: 70,
               height: 100,
@@ -30,12 +40,15 @@ class BookCard extends StatelessWidget {
                 color: Colors.orange,
                 borderRadius: BorderRadius.circular(12),
               ),
-
               child: const Icon(Icons.menu_book, color: Colors.white, size: 40),
             ),
+
             const SizedBox(width: 14),
+
+            //Book Info
             Expanded(
               child: Column(
+                mainAxisSize: MainAxisSize.min, 
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -49,13 +62,50 @@ class BookCard extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  Text(book.author, style: const TextStyle(color: Colors.grey)),
+                  Text(
+                    'By ${book.author}',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(color: Colors.grey),
+                  ),
                   const SizedBox(height: 8),
                   RatingWidget(rating: book.rating),
                   const SizedBox(height: 8),
                   StatusChip(status: book.status),
                 ],
               ),
+            ),
+
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: onEdit,
+                  borderRadius: BorderRadius.circular(8),
+                  child: const Padding(
+                    padding: EdgeInsets.all(
+                      8,
+                    ),
+                    child: Icon(
+                      Icons.edit_outlined,
+                      color: AppColors.primary,
+                      size: 22,
+                    ),
+                  ),
+                ),
+                InkWell(
+                  onTap: onDelete,
+                  borderRadius: BorderRadius.circular(8),
+                  child: const Padding(
+                    padding: EdgeInsets.all(8),
+                    child: Icon(
+                      Icons.delete_outline,
+                      color: Colors.redAccent,
+                      size: 22,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
