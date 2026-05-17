@@ -1,17 +1,35 @@
 # book_journal_app
 
-A new Flutter project.
+A Flutter app I built to track my reading journey. You can add books, rate them, update their reading status, and write personal notes — all synced with a backend API.
 
-## Getting Started
+# Screenshots
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Features
+ Add, edit, and delete books
+ Rate books from 1 to 5
+ Track reading status — Planned, Reading, Completed
+ Search books by title or author
+ Write and save personal notes for each book
+ Data synced with a REST API
+ 
+# project structure
+lib/
+├── core/
+│   └── constants/
+│       └── app_colors.dart       # Color constants
+├── models/
+│   └── book_model.dart           # Book data model
+├── providers/
+│   └── book_provider.dart        # State management
+├── screens/
+│   ├── home_screen.dart          # Book list + search
+│   ├── add_book_screen.dart      # Add new book
+│   ├── edit_book_screen.dart     # Edit existing book
+│   └── book_detail_screen.dart   # Book details + notes
+├── services/
+│   └── api_service.dart          # API calls
+├── widgets/
+│   ├── book_card.dart            # Reusable book card
+│   ├── rating_widget.dart        # Star rating display
+│   └── status_chip.dart          # Status badge
+└── main.dart                     # App entry point
