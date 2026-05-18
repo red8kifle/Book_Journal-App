@@ -3,6 +3,7 @@
 A Flutter app I built to track my reading journey. You can add books, rate them, update their reading status, and write personal notes — all synced with a backend API.
 
 # Screenshots
+the scrrenshots of the pages are on the screenshots folder.
 
 # Features
  Add, edit, and delete books
